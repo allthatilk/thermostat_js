@@ -4,6 +4,8 @@ const MIN_TEMPERATURE = 10
 const MAX_STANDARD_TEMP = 32
 const MAX_POWERSAVE_TEMP = 25
 const BASE_TEMP = 20
+const LOW_USE_LIMIT = 18
+const MED_USE_LIMIT = 25
 
 function Thermostat() {
   this.temperature = BASE_TEMP;
@@ -42,17 +44,29 @@ Thermostat.prototype.powerSavingOn = function() {
 };
 
 Thermostat.prototype.powerSavingMax = function(amount) {
-  if (this.temperature + amount > 25) {
+  if (this.temperature + amount > MAX_POWERSAVE_TEMP) {
   return true;
   }
 };
 
 Thermostat.prototype.standardTempMax = function(amount) {
-  if (this.temperature + amount > 32) {
+  if (this.temperature + amount > MAX_STANDARD_TEMP) {
     return true;
   }
 };
 
 Thermostat.prototype.reset = function() {
   this.temperature = BASE_TEMP
+}
+
+Thermostat.prototype.checkUsage = function() {
+  if (this.temperature < LOW_USE_LIMIT) {
+  return "low-usage"
+  }
+  if (this.temperature < MED_USE_LIMIT && this.temperature >= LOW_USE_LIMIT) {
+    return "medium-usage"
+  }
+  if (this.temperature >= MED_USE_LIMIT) {
+    return "high-usage"
+  }
 }

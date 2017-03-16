@@ -38,7 +38,7 @@ describe("Thermostat", function() {
     });
 
     it("can turn power-saving mode on", function() {
-      thermo.powerSavingOff();
+      thermo.powerSaving = false;
       console.log(thermo);
       thermo.powerSavingOn();
       expect(thermo.powerSaving).toEqual(true);
@@ -50,11 +50,30 @@ describe("Thermostat", function() {
       }).toThrowError("Cannot go above 25 degrees in power-saving mode")
     });
 
-    it("sets the max temp to 35 when power-saving is off", function() {
+    it("sets the max temp to 32 when power-saving is off", function() {
       thermo.powerSavingOff();
       expect(function() {
         thermo.tempIncrease(16)
       }).toThrowError("Cannot go above 32 degrees")
     });
   });
+
+  describe("energy usage reporting", function() {
+    it("shows low-usage when temperature < 18 degrees", function() {
+      thermo.temperature = 16
+      expect(thermo.checkUsage()).
+      toEqual("low-usage")
+    })
+
+    it("shows medium-usage when temperature < 25 but at least 18 degrees", function() {
+      expect(thermo.checkUsage()).
+      toEqual("medium-usage")
+    })
+
+    it("shows high-usage when temperature >= 25 degrees", function() {
+      thermo.temperature = 27
+      expect(thermo.checkUsage()).
+      toEqual("high-usage")
+    })
+  })
 });
