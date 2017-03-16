@@ -1,4 +1,7 @@
+'use strict';
+
 describe("Thermostat", function() {
+  var thermo = new Thermostat();
 
   beforeEach(function() {
     thermo = new Thermostat();
@@ -17,9 +20,14 @@ describe("Thermostat", function() {
       expect(thermo.temperature).toEqual(10);
     });
     it("doesn't go below 10 degrees", function() {
-      thermo.tempDecrease(10);
-      expect(thermo.tempDecrease(1)).toEqual("Cannot go below 10 degrees")
+      expect(function() {
+        thermo.tempDecrease(11)
+      }).toThrowError("Cannot go below 10 degrees")
     });
+    it("can be reset to 20 degrees", function() {
+      thermo.reset()
+      expect(thermo.temperature).toEqual(20);
+    })
   });
 
   describe("power-saving mode", function() {
@@ -28,15 +36,25 @@ describe("Thermostat", function() {
       thermo.powerSavingOff();
       expect(thermo.powerSaving).toEqual(false);
     });
+
     it("can turn power-saving mode on", function() {
       thermo.powerSavingOff();
       console.log(thermo);
       thermo.powerSavingOn();
       expect(thermo.powerSaving).toEqual(true);
     });
-    it("changes the max temperature while power-saving is on", function() {
-      thermo.tempIncrease(5);
-      expect(thermo.tempIncrease(1)).toEqual("Cannot go above 25 degrees when in power-saving mode")
+
+    it("sets the max temp to 25 for power-saving", function() {
+      expect(function() {
+        thermo.tempIncrease(6)
+      }).toThrowError("Cannot go above 25 degrees in power-saving mode")
+    });
+
+    it("sets the max temp to 35 when power-saving is off", function() {
+      thermo.powerSavingOff();
+      expect(function() {
+        thermo.tempIncrease(16)
+      }).toThrowError("Cannot go above 32 degrees")
     });
   });
 });
