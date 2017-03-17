@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel ="stylesheet" type="text/css" href="style.css">
+  <title>
+    Thermius the Mighty Thermostat
+  </title>
+</head>
+
+<body>
+  <div id="display">
+    <section>
+      <h1>Current temperature: <span id="current-temperature"></span> &#x2103; </h1>
+      <h1>Thermostat setting: <span id="temperature"></span></h1>
+      <h1>PowerSave Mode: <span id="powerSaving"></span></h1>
+    </section>
+  </div>
+  <div id="selection">
+    <form id="select-city">
+      <input id="current-city" type="text" placeholder="Enter a city"></input>
+      <input type="submit"></input>
+    </form>
+  </div>
+  </div>
+  <div id="controls">
+    <button type="button" id="tempIncrease">Increase</button>
+    <button type="button" id="tempDecrease">Decrease</button>
+    <button type="button" id="powerSavingOn">PowerSaveOn</button>
+    <button type="button" id="powerSavingOff">PowerSaveOff</button>
+    <button type="button" id="reset">Reset</button>
+  </div>
+  <script src="jquery.js"></script>
+  <script src="src/thermostat.js"></script>
+  <script src="interface.js"></script>
+</body>
+</html>
