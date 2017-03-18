@@ -12,7 +12,7 @@ h1 {
 
 button {
   font-family: 'Amatic SC';
-  font-size: 50px;
+  font-size: 30px;
   margin: 10px;
   border-radius: 8px;
 }
@@ -45,7 +45,7 @@ input.submit-button {
 
 #temp-buttons {
   width: 400px;
-  height: 100px;
+  height: 75px;
   margin: auto;
   text-align: center;
   box-sizing: border-box;
@@ -53,7 +53,7 @@ input.submit-button {
 
 #power-save-buttons {
   width: 400px;
-  height: 200px;
+  height: 75px;
   margin: auto;
   text-align: center;
   box-sizing: border-box;
@@ -61,7 +61,18 @@ input.submit-button {
 
 #reset-button {
   width: 400px;
-  height: 70px;
+  height: 75px;
+  margin: auto;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+#name {
+  font-family: 'Amatic SC';
+  font-size: 70px;
+  width: 500px;
+  height: 75px;
+  padding: 30px;
   margin: auto;
   text-align: center;
   box-sizing: border-box;
