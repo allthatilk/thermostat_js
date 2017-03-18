@@ -1,6 +1,28 @@
+body {
+  background-image: url(http://wallpaper-gallery.net/images/wallpaper-background/wallpaper-background-17.jpg);
+}
+
+h1 {
+  color: DimGrey;
+  font-family: 'Amatic SC';
+  font-size: 35px;
+}
+
+button {
+  font-family: 'Amatic SC';
+  font-size: 20px;
+  margin: 10px;
+  border-radius: 8px;
+}
+
+input {
+  font-family: 'Amatic SC';
+  font-size: 30px;
+}
+
 #display {
   width: 400px;
-  height: 150px;
+  height: 220px;
   margin: auto;
   text-align: center;
   box-sizing: border-box;
@@ -8,7 +30,7 @@
 
 #selection {
   width: 400px;
-  height: 50px;
+  height: 60px;
   margin: auto;
   text-align: center;
   box-sizing: border-box;
@@ -17,10 +39,17 @@
 #controls {
   width: 400px;
   height: 30px;
-  margin:auto;
+  margin: auto;
   text-align: center;
   box-sizing: border-box;
 }
+
+/*#name {
+  width: 400px;
+  margin: auto;
+  text-align: center;
+  box-sizing: border-box;
+}*/
 
 .low-usage {
   color: green;

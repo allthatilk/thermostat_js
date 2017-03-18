@@ -10,12 +10,20 @@ $(document).ready(function() {
   })
 
   $('#tempIncrease').click(function () {
-    thermius.tempIncrease()
+    try {
+      thermius.tempIncrease()
+    }catch(err) {
+      alert("Cannot increase above maximum")
+    }
     temperatureReport()
   })
 
   $('#tempDecrease').click(function () {
+    try {
     thermius.tempDecrease()
+  }catch(err) {
+    alert("Cannot decrease below minimum")
+  }
     temperatureReport()
   })
 
