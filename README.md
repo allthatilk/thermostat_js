@@ -11,3 +11,15 @@
 * Power saving mode is on by default
 * You can reset the temperature to 20 with a reset function
 * You can ask about the thermostat's current energy usage: < 18 is low-usage, < 25 is medium-usage, anything else is high-usage.
+
+--
+## Completed
+
+* Working app with user interface
+* Can be run by cloning this repo and running 'open index.html' in command line
+
+## To do
+
+* Adding repeating gradient to bottom of background
+* Possibly adding some animations for practice
+* Uploading to Heroku

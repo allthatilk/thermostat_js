@@ -52,15 +52,11 @@
   }
 
   Thermostat.prototype.powerSavingMax = function() {
-    if (this.temperature + TEMP_INCREMENT_VALUE > MAX_POWERSAVE_TEMP) {
-    return true
-    }
+    return this.temperature + TEMP_INCREMENT_VALUE > MAX_POWERSAVE_TEMP
   }
 
   Thermostat.prototype.standardTempMax = function() {
-    if (this.temperature + TEMP_INCREMENT_VALUE > MAX_STANDARD_TEMP) {
-      return true
-    }
+    return this.temperature + TEMP_INCREMENT_VALUE > MAX_STANDARD_TEMP
   }
 
   Thermostat.prototype.reset = function() {
